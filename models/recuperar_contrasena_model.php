@@ -26,6 +26,11 @@ class RecuperarContrasenaModel{
         }
         return $this->persona;
     }
+
+    public function update_contrasena_usuario($rut, $contrasena){
+        $result=$this->db->query("update Usuarios set u_contrasena='".$contrasena."' where p_rut='".$rut."';");
+        return $result;
+    }
 }
 ?>
 

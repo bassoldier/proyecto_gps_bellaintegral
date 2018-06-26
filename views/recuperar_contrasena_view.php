@@ -18,7 +18,7 @@
             <div class="row">
                 <form action="../controllers/recuperar_contrasena_controller.php" method="POST">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="RUT" id="rut" name="rut" required>
+                        <input type="text" class="form-control" placeholder="RUT" id="rut" name="rut" required oninput="checkRut(this)">
                         <span class="input-group-btn">
                             <input type="submit" id="submit" class="btn btn-primary" value="Verificar">
                         </span>
@@ -40,6 +40,7 @@
 
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="../js/functions.js"></script>
 
 </body>
 

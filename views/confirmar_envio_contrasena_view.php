@@ -17,7 +17,7 @@
             </div>
             <div class="row">
                 <div class="col-xs-offset-4 col-xs-4 center-block">
-                    <a href="" class="btn btn-primary">Enviar</a>
+                    <a href="../controllers/confirmar_envio_contrasena_controller.php?correo=<?php echo $datos[0]['p_correo'];?> & rut=<?php echo $datos[0]['p_rut'];?>" class="btn btn-primary">Enviar</a>
                 </div>    
             </div>
         </div>
