@@ -26,11 +26,38 @@
                 </form>
             </div>
             <div class="row">
-                <div class="alert alert-danger hide" role="alert">
-                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                    <span class="sr-only">Error:</span>
-                    Su rut no se encuentra registrado, vuelva a intentarlo.
-                </div>
+                <?php
+                    if(isset($_GET['answer'])){
+                        if($_GET['answer']==0){
+                            echo '<div class="alert alert-success" role="alert">';
+                                echo '<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>';
+                                echo '<span class="sr-only">Error: </span>';
+                                echo 'Su nueva contraseña ha sido enviada a su correo.';
+                            echo '</div>';
+                        }
+                        if($_GET['answer']==1){
+                            echo '<div class="alert alert-danger" role="alert">';
+                                echo '<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>';
+                                echo '<span class="sr-only">Error: </span>';
+                                echo 'No se ha logrado enviar su contraseña, contáctese con el administrador.';
+                            echo '</div>';
+                        }
+                        if($_GET['answer']==2){ 
+                            echo '<div class="alert alert-danger" role="alert">';
+                                echo '<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>';
+                                echo '<span class="sr-only">Error: </span>';
+                                echo 'Su rut no se encuentra registrado';
+                            echo '</div>';
+                        }
+                        if($_GET['answer']==3){ 
+                            echo '<div class="alert alert-danger" role="alert">';
+                                echo '<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>';
+                                echo '<span class="sr-only">Error: </span>';
+                                echo 'No se ha logrado recuperar su contraseña, intentelo nuevamente';
+                            echo '</div>';
+                        }
+                    }
+                ?> 
             </div>
         </div>
     </div>

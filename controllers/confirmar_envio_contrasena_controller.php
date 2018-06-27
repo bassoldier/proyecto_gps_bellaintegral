@@ -2,7 +2,7 @@
 	ini_set('display_errors', 'On');
 	error_reporting(E_ALL);
 
-	require_once("../models/recuperar_contrasena_model.php");
+	require_once("../models/contrasena_model.php");
 	require_once("../controllers/contrasena_controller.php");
 	require_once("../controllers/correo_controller.php");
 	
@@ -19,10 +19,16 @@
 
 
 	if ($result) {
-    	$correo_controller->enviar_correo_contrasena($correo, $new_contrasena);
-    	echo 'Enviado';
+    	$mail=$correo_controller->enviar_correo_recuperar_contrasena($correo, $new_contrasena);
+    	if($mail){
+    		$answer=0;
+    	}
+		else{
+    		$answer=1;
+    	}
 	}
 	else{
-		echo 'No se ha actualizado la contraseña';
+		$answer=3;
 	}
+	header("Location:../views/recuperar_contrasena_view.php?answer=".$answer);
 ?>

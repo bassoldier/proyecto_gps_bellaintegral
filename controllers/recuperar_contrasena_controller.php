@@ -1,5 +1,5 @@
 <?php
-	require_once("../models/recuperar_contrasena_model.php");
+	require_once("../models/contrasena_model.php");
 	ini_set('display_errors', 'On');
 	error_reporting(E_ALL);
 	$rut = $_REQUEST['rut'];
@@ -7,13 +7,11 @@
 	$datos=$contrasena->get_usuario_con_rut($rut);
 
 	if (empty($datos)) {
-    	echo '$var es o bien 0, vacía, o no se encuentra definida en absoluto';
+    	header("Location:../views/recuperar_contrasena_view.php?answer=2");
 	}
 	else{
 		$datos=$contrasena->get_persona_con_rut($rut);
-		//echo $datos[0]['p_correo'];
-			//header('Location: ../views/confirmar_envio_contrasena_view.php?correo='.$datos[0]['p_correo']);
-			require_once("../views/confirmar_envio_contrasena_view.php");
+		require_once("../views/confirmar_envio_contrasena_view.php");
 		exit;
 	}
 ?>
